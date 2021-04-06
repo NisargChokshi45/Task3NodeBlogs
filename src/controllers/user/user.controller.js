@@ -52,7 +52,7 @@ const getUsers = async (req, res, next) => {
 		}
 	} catch (error) {
 		res.status(400);
-		return res.json(errorFunction(true, "Error Adding user"));
+		return res.json(errorFunction(true, "Error getting user"));
 	}
 };
 
