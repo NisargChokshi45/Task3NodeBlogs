@@ -1,30 +1,16 @@
 require("dotenv").config();
+require('./db/conn');
 const express = require("express");
-const http = require("http");
-const mongoose = require("mongoose");
-const routes = require("./routes/userRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 const app = express();
+const port = process.env.PORT;
 
 app.use(express.json({ limit: "10MB" }));
 app.use(express.urlencoded({ extended: true }));
 
-const server = http.createServer(app);
+app.use(userRoutes);
 
-const port = process.env.PORT;
-const mongoUri = process.env.MONGO_URI;
-
-mongoose.connect(
-	mongoUri,
-	{ useNewUrlParser: true, useUnifiedTopology: true },
-	(error) => {
-		if (error) console.log("Error connecting to Database !");
-		else {
-			console.log("Conencted to Database !");
-			server.listen(port, () => {
-				console.log("Server Started !");
-				app.use("/", routes);
-			});
-		}
-	}
-);
+app.listen(port, () => {
+    console.log(`Server is running at ${port}`);
+});
