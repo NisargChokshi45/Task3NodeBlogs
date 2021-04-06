@@ -38,7 +38,7 @@ const addUser = async (req, res, next) => {
 	}
 };
 
-const getUser = async (req, res, next) => {
+const getUsers = async (req, res, next) => {
 	try {
 		const allUsers = await User.find();
 		if (allUsers) {
@@ -56,4 +56,4 @@ const getUser = async (req, res, next) => {
 	}
 };
 
-module.exports = { addUser, getUser };
+module.exports = { addUser, getUsers };
