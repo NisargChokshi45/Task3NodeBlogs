@@ -1,15 +1,13 @@
 require("dotenv").config();
 const express = require("express");
-const morgan = require("morgan");
 const http = require("http");
 const mongoose = require("mongoose");
-const routes = require("./routes/routes");
+const routes = require("./routes/userRoutes");
 
 const app = express();
 
 app.use(express.json({ limit: "10MB" }));
 app.use(express.urlencoded({ extended: true }));
-app.use(morgan("dev"));
 
 const server = http.createServer(app);
 
