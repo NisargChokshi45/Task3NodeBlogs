@@ -9,6 +9,6 @@ router.get("/", defaultController);
 
 router.post("/addUser", userValidation, addUser);
 
-router.get("/getUser", getUser);
+router.get("/getUsers", getUser);
 
 module.exports = router;

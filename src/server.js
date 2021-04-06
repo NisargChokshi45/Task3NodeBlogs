@@ -9,7 +9,7 @@ const port = process.env.PORT;
 app.use(express.json({ limit: "10MB" }));
 app.use(express.urlencoded({ extended: true }));
 
-app.use(userRoutes);
+app.use('/', userRoutes);
 
 app.listen(port, () => {
     console.log(`Server is running at ${port}`);
