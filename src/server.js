@@ -14,10 +14,10 @@ app.use(morgan("dev"));
 const server = http.createServer(app);
 
 const port = process.env.PORT;
-const mongoUrl = process.env.MONGO_URL;
+const mongoUri = process.env.MONGO_URI;
 
 mongoose.connect(
-	mongoUrl,
+	mongoUri,
 	{ useNewUrlParser: true, useUnifiedTopology: true },
 	(error) => {
 		if (error) console.log("Error connecting to Database !");
